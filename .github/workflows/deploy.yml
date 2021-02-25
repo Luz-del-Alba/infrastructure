@@ -5,8 +5,8 @@ on:
 name: Deploy
 
 jobs:
-  deploy-postgre:
-    name: Deploy Postgre
+  deploy-mongo:
+    name: Deploy Mongo
     runs-on: ubuntu-latest
 
     steps:
@@ -34,7 +34,7 @@ jobs:
           script: |
             docker stack deploy --compose-file /home/${{ secrets.REMOTE_USER }}/app/mongo/docker-compose.yml luz-del-alba
 
-  deploy-mongo:
+  deploy-redis:
     name: Deploy Redis
     runs-on: ubuntu-latest
 
@@ -63,7 +63,7 @@ jobs:
           script: |
             docker stack deploy --compose-file /home/${{ secrets.REMOTE_USER }}/app/redis/docker-compose.yml luz-del-alba
 
-  deploy-redis:
+  deploy-postrgres:
     name: Deploy Postgres
     runs-on: ubuntu-latest
 
